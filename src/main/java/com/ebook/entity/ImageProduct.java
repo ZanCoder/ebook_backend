@@ -1,9 +1,13 @@
 package com.ebook.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "image_products")
 public class ImageProduct {
@@ -18,7 +22,8 @@ public class ImageProduct {
     @Column(name = "link_img")
     private String linkImg;
 
-    @Column(name = "data_img")
+    @Column(name = "data_img", columnDefinition = "LONGTEXT")
+    @Lob
     private String dataImg;
 
     @Column(name = "is_icon")
