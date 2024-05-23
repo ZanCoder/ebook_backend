@@ -13,7 +13,6 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/add")
     public ResponseEntity<?> addOrder(@RequestBody OrderDTO orderRequestDTO) {
         int userId = orderRequestDTO.getUserId();

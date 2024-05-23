@@ -19,20 +19,20 @@ public class MethodRestConfig implements RepositoryRestConfigurer {
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-        HttpMethod[] disableMethods = {
-                HttpMethod.POST,
-                HttpMethod.PUT,
-                HttpMethod.PATCH,
-                HttpMethod.DELETE
-        };
+//        HttpMethod[] disableMethods = {
+//                HttpMethod.POST,
+//                HttpMethod.PUT,
+//                HttpMethod.PATCH,
+//                HttpMethod.DELETE
+//        };
         // Expose ids
         // return id with json
         config.exposeIdsFor(entityManager.getMetamodel().getEntities().stream().map(Type::getJavaType).toArray(Class[]::new));
 
         // CORS configuration
-        cors.addMapping("/**")
-                .allowedOrigins(url)
-                .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE");
+//        cors.addMapping("/**")
+//                .allowedOrigins(url)
+//                .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE");
 
         // Config disable class
         // disableHttpMethod(Brand.class, config, disableMethods);

@@ -40,8 +40,15 @@ public class User {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "avatar")
+    @Column(name = "avatar", columnDefinition = "LONGTEXT")
+    @Lob
     private String avatar;
+
+    @Column(name = "active")
+    private boolean active;
+
+    @Column(name = "code_active")
+    private String codeActive;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Order> orderList;
@@ -52,7 +59,7 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Favorites> favoritesList;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {
             CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.REFRESH, CascadeType.DETACH
     })
