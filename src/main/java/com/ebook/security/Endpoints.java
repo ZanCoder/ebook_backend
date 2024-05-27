@@ -7,6 +7,8 @@ public class Endpoints {
     public static final String[] PUBLIC_GET_ENDPOINTS = {
             "/products",
             "/products/**",
+            "/brands",
+            "/brands/**",
             "/image-product",
             "/image-product/**",
             "/users/search/existsByUsername",
@@ -25,6 +27,13 @@ public class Endpoints {
     };
 
     public static final String[] ADMIN_POST_ENDPOINTS = {
-            "/products"
+            "/products",
+            "/brands"
+    };
+
+    public static final String[] ADMIN_DELETE_ENDPOINTS = {
+            "/products",
+            "/products/**",
+            "/brands"
     };
 }
